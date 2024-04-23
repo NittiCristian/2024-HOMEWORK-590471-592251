@@ -29,13 +29,19 @@ public class Labirinto {
 			/* crea gli attrezzi */
 	    	Attrezzo lanterna = new Attrezzo("lanterna",3);
 			Attrezzo osso = new Attrezzo("osso",1);
-	    	
+			Attrezzo sasso = new Attrezzo("sasso",2);
+			Attrezzo torcia = new Attrezzo("torcia",4);
+			Attrezzo chiave = new Attrezzo("chiave",1);
+			
 			/* crea stanze del labirinto */
 			Stanza atrio = new Stanza("Atrio");
 			Stanza aulaN11 = new Stanza("Aula N11");
 			Stanza aulaN10 = new Stanza("Aula N10");
 			Stanza laboratorio = new Stanza("Laboratorio Campus");
 			Stanza biblioteca = new Stanza("Biblioteca");
+			StanzaMagica aulaN18= new StanzaMagica("Aula N18");
+			StanzaBuia bagno= new StanzaBuia("Bagno");
+			StanzaBloccata ufficio=new StanzaBloccata("ufficio", "chiave", "nord");
 			
 			/* collega le stanze */
 			atrio.impostaStanzaAdiacente("nord", biblioteca);
@@ -50,11 +56,22 @@ public class Labirinto {
 			laboratorio.impostaStanzaAdiacente("est", atrio);
 			laboratorio.impostaStanzaAdiacente("ovest", aulaN11);
 			biblioteca.impostaStanzaAdiacente("sud", atrio);
-
+			
+			aulaN18.impostaStanzaAdiacente("nord", aulaN11);
+			aulaN11.impostaStanzaAdiacente("sud", aulaN18);
+			
+			bagno.impostaStanzaAdiacente("sud", aulaN11);
+			aulaN11.impostaStanzaAdiacente("nord", bagno);
+			
+			ufficio.impostaStanzaAdiacente("nord", aulaN10);
+			aulaN10.impostaStanzaAdiacente("sud", ufficio);
+			
 	        /* pone gli attrezzi nelle stanze */
 			aulaN10.addAttrezzo(lanterna);
 			atrio.addAttrezzo(osso);
-
+			aulaN18.addAttrezzo(sasso);
+			bagno.addAttrezzo(torcia);
+			ufficio.addAttrezzo(chiave);
 			// il gioco comincia nell'atrio
 	        stanzaCorrente = atrio;  
 			stanzaVincente = biblioteca;
