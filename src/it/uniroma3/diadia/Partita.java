@@ -26,6 +26,12 @@ public class Partita {
 		this.io=io;
 		this.finita = false;
 	}
+	public Partita(Labirinto labirinto, IO io){
+		
+		this.labirinto=labirinto;
+		this.io=io;
+		this.finita = false;
+	}
 	
 	/**
 	 * Restituisce vero se e solo se la partita e' stata vinta

@@ -11,6 +11,9 @@ public class Labirinto {
 	public Stanza getStanzaVincente() {
 		return stanzaVincente;
 	}
+	public void setStanzaVincente(Stanza stanzaVincente) {
+		this.stanzaVincente = stanzaVincente;
+	}
 
 	public void setStanzaCorrente(Stanza stanzaCorrente) {
 		this.stanzaCorrente = stanzaCorrente;
@@ -75,6 +78,8 @@ public class Labirinto {
 			// il gioco comincia nell'atrio
 	        stanzaCorrente = atrio;  
 			stanzaVincente = biblioteca;
+			
+			System.out.println(stanzaCorrente.getDirezioni());
 	    }
 
 }

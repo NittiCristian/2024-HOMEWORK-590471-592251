@@ -67,7 +67,7 @@ class testStanza {
 		
 		stanza.addAttrezzo(attrezzo1);
 		
-		assertEquals("Osso",stanza.getAttrezzi()[0].getNome());
+		assertTrue(stanza.hasAttrezzo("Osso"));
 	}
 	
 	@Test
