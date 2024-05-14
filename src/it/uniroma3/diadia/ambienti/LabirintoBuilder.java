@@ -6,8 +6,8 @@ import it.uniroma3.diadia.attrezzi.Attrezzo;
 public class LabirintoBuilder {
 	
 	private Labirinto labirinto= new Labirinto();
-	HashMap<String,Stanza> listaStanze= new HashMap<>();
-	Stanza ultimaStanza;
+	private HashMap<String,Stanza> listaStanze= new HashMap<>();
+	private Stanza ultimaStanza;
 	
 	public LabirintoBuilder addStanzaIniziale(String stanza) {
 		
