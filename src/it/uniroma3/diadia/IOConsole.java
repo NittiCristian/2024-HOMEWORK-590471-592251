@@ -4,14 +4,21 @@ import java.util.Scanner;
 
 public class IOConsole implements IO {
 
+	private Scanner scannerDiLinee;
+	
+	public IOConsole(Scanner scannerDiLinee) {
+	
+		this.scannerDiLinee = scannerDiLinee;
+	}
+	
 	public void mostraMessaggio(String msg) {
 		System.out.println(msg);
 	}
 	public String leggiRiga() {
 		
-		Scanner scannerDiLinee = new Scanner(System.in);
+		
 		String riga = scannerDiLinee.nextLine();
-		//scannerDiLinee.close();
+		
 		return riga;
 	}
 	/*public boolean hasRiga(String msg) {
@@ -22,15 +29,16 @@ public class IOConsole implements IO {
 		return riga;
 	}*/
 	public String parola(String msg) {
-		
-		Scanner scannerDiLinee = new Scanner(msg);
+		scannerDiLinee.close();
+		scannerDiLinee = new Scanner(msg);
 		
 		msg=scannerDiLinee.next();
+		
 		return msg;
 	}
 	public String parametro(String msg) {
-		
-		Scanner scannerDiLinee = new Scanner(msg);
+		scannerDiLinee.close();
+		scannerDiLinee = new Scanner(msg);
 		
 		if(scannerDiLinee.hasNext())
 		msg=scannerDiLinee.next();

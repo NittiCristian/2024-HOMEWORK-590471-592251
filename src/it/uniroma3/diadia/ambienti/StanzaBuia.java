@@ -3,7 +3,7 @@ package it.uniroma3.diadia.ambienti;
 public class StanzaBuia extends Stanza{
 	
 	final static private String ATTREZZO_BUIO_DEFAULT="torcia"; 
-
+	
 	private String attrezzoBuio="torcia";
 	
 	public StanzaBuia(String nome) {
@@ -24,4 +24,7 @@ public class StanzaBuia extends Stanza{
 		else
 		return "Qui c'è un buio :o";
     }
+	public void setAttrezzoBuio(String attrezzoBuio) {
+		this.attrezzoBuio = attrezzoBuio;
+	}
 }

@@ -21,13 +21,13 @@ class testComandoVai {
 	private ComandoVai vai;
 	private Stanza stanza1;
 	private Stanza stanza2;
-	LabirintoBuilder labirintoBuilder;
+	Labirinto.LabirintoBuilder labirintoBuilder;
 	
 	
 	@BeforeEach
 	public void setUp() {
 		
-		io= new IOConsole();
+		io= new IOConsole(null);
 		partita= new Partita(io);
 		vai= new ComandoVai();
 		
@@ -36,7 +36,8 @@ class testComandoVai {
 		stanza1.impostaStanzaAdiacente("sud", stanza2);
 		stanza2.impostaStanzaAdiacente("nord", stanza1);
 		partita.setStanzaCorrente(stanza1);
-		labirintoBuilder=new LabirintoBuilder();
+		Labirinto labirinto = new Labirinto();
+		labirintoBuilder=labirinto.newBuilder();
 	}
 	
 	@Test
@@ -63,7 +64,7 @@ class testComandoVai {
 	}
 	
 	@Test
-	public void testBilocale() {
+	public void testBilocaleLabirintoBuilder() {
 	
 		Labirinto bilocale = labirintoBuilder
 				.addStanzaIniziale("Atrio")
@@ -72,7 +73,7 @@ class testComandoVai {
 				.addAdiacenza("Uscita", "Atrio", "sud")
 				.getLabirinto();
 		
-		io= new IOConsole();
+		io= new IOConsole(null);
 		partita= new Partita(bilocale,io);
 		
 		vai.setParametro("nord");
@@ -82,7 +83,7 @@ class testComandoVai {
 	}
 	
 	@Test
-	public void testTrilocale(){
+	public void testTrilocaleLabirintoBuilder(){
 		
 		Labirinto trilocale = labirintoBuilder
 				.addStanzaIniziale("ingresso")
@@ -93,7 +94,7 @@ class testComandoVai {
 				.addAdiacenza("biblioteca", "cucina", "est")
 				.addAdiacenza("cucina","biblioteca" , "ovest")
 				.getLabirinto();	
-		io= new IOConsole();
+		io= new IOConsole(null);
 		partita= new Partita(trilocale,io);
 		
 		vai.setParametro("sud");

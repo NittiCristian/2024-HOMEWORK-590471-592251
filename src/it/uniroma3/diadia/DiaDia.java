@@ -1,11 +1,11 @@
 package it.uniroma3.diadia;
 
+import java.util.Scanner;
+
 import it.uniroma3.diadia.ambienti.Labirinto;
-import it.uniroma3.diadia.ambienti.Stanza;
-import it.uniroma3.diadia.attrezzi.Attrezzo;
-import it.uniroma3.diadia.comandi.Comando;
+import it.uniroma3.diadia.comandi.AbstractComando;
 import it.uniroma3.diadia.comandi.FabbricaDiComandi;
-import it.uniroma3.diadia.comandi.FabbricaDiComandiFisarmonica;
+import it.uniroma3.diadia.comandi.FabbricaDiComandiRiflessiva;
 
 /**
  * Classe principale di diadia, un semplice gioco di ruolo ambientato al dia.
@@ -48,9 +48,9 @@ public class DiaDia {
 		this.io=io;
 		this.partita = new Partita(labirinto, io);
 	}
-	private boolean processaIstruzione(String istruzione) {
-		Comando comandoDaEseguire;
-		FabbricaDiComandi factory = new FabbricaDiComandiFisarmonica();
+	private boolean processaIstruzione(String istruzione) throws Exception {
+		AbstractComando comandoDaEseguire;
+		FabbricaDiComandi factory = new FabbricaDiComandiRiflessiva();
 		comandoDaEseguire = factory.costruisciComando(istruzione);
 		comandoDaEseguire.esegui(this.partita);
 
@@ -63,7 +63,7 @@ public class DiaDia {
 		return this.partita.isFinita();
 	}
 
-	public void gioca() {
+	public void gioca() throws Exception {
 
 		String istruzione; 
 
@@ -83,9 +83,11 @@ public class DiaDia {
 		while (istruzione.equals("")||(!processaIstruzione(istruzione)));
 	}  
 
-	public static void main(String[] argc) {
-		IO io=new IOConsole();	
+	public static void main(String[] argc) throws Exception {
+		Scanner scannerDiLinee = new Scanner(System.in);
+		IO io=new IOConsole(scannerDiLinee);	
 		DiaDia gioco = new DiaDia(io);
 		gioco.gioca();
+		scannerDiLinee.close();
 	}
 }

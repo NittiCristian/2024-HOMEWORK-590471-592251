@@ -3,7 +3,7 @@ package it.uniroma3.diadia.comandi;
 import it.uniroma3.diadia.Partita;
 import it.uniroma3.diadia.attrezzi.Attrezzo;
 
-public class ComandoPrendi implements Comando {
+public class ComandoPrendi extends AbstractComando {
 	
 	String nomeAttrezzo;
 
@@ -20,6 +20,7 @@ public class ComandoPrendi implements Comando {
 			}else {
 
 				partita.getIo().mostraMessaggio(" Spazio esaurito"); 
+				partita.getStanzaCorrente().addAttrezzo(attrezzo);
 			}
 			
 		}else {
@@ -35,7 +36,6 @@ public class ComandoPrendi implements Comando {
 		this.nomeAttrezzo=parametro;
 	}
 
-	@Override
 	public String getParametro() {
 		
 		return this.nomeAttrezzo;

@@ -15,7 +15,7 @@ import it.uniroma3.diadia.ambienti.Stanza;
  * @version base
  */
 
-public class ComandoVai implements Comando{
+public class ComandoVai extends AbstractComando{
 	
 	private String direzione;
 	
@@ -43,13 +43,10 @@ public class ComandoVai implements Comando{
 		
 	}
 
-	@Override
 	public void setParametro(String parametro) {
 		
 		this.direzione=parametro;
 	}
-
-	@Override
 	public String getParametro() {
 		
 		return this.direzione;

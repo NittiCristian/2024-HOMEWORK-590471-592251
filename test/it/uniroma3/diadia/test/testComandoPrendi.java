@@ -21,7 +21,7 @@ public class testComandoPrendi {
 	@BeforeEach
 	public void setUp() {
 		
-		io= new IOConsole();
+		io= new IOConsole(null);
 		partita= new Partita(io);
 		attrezzo= new Attrezzo("sasso", 4);
 		prendi= new ComandoPrendi();

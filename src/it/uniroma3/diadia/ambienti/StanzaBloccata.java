@@ -6,12 +6,22 @@ public class StanzaBloccata extends Stanza{
 	private String attrezzoSblocco;
 	private String direzioneBloccata;
 	
-	
+
+
+
 	public StanzaBloccata(String nome, String attrezzoSblocco, String direzioneBloccata) {
 		
 		super(nome);
 		this.attrezzoSblocco=attrezzoSblocco;
 		this.direzioneBloccata=direzioneBloccata;
+	}
+
+	public void setAttrezzoSblocco(String attrezzoSblocco) {
+		this.attrezzoSblocco = attrezzoSblocco;
+	}
+
+	public void setDirezioneBloccata(String direzioneBloccata) {
+		this.direzioneBloccata = direzioneBloccata;
 	}
 
 	@Override

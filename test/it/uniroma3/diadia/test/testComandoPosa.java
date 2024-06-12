@@ -9,7 +9,7 @@ import it.uniroma3.diadia.IO;
 import it.uniroma3.diadia.IOConsole;
 import it.uniroma3.diadia.Partita;
 import it.uniroma3.diadia.attrezzi.Attrezzo;
-import it.uniroma3.diadia.comandi.Comando;
+
 import it.uniroma3.diadia.comandi.ComandoPosa;
 
 
@@ -24,7 +24,7 @@ class testComandoPosa {
 	@BeforeEach
 	public void setUp() {
 		
-		io= new IOConsole();
+		io= new IOConsole(null);
 		partita= new Partita(io);
 		attrezzo= new Attrezzo("Lanterna", 3);
 		posa= new ComandoPosa();
