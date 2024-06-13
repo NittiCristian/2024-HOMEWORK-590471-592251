@@ -1,7 +1,7 @@
-package it.uniroma3.diadia;
+/**package it.uniroma3.diadia;
 
 
-/**
+
  * Questa classe modella un comando.
  * Un comando consiste al piu' di due parole:
  * il nome del comando ed un parametro
@@ -11,7 +11,7 @@ package it.uniroma3.diadia;
  *
  * @author  docente di POO
  * @version base
- */
+ 
 
 public class Comando {
 	IOConsole IO=new IOConsole();
@@ -43,3 +43,4 @@ public class Comando {
         return (this.nome == null);
     }
 }
+*/
